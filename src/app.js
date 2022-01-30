@@ -1,14 +1,18 @@
 const express = require("express"),
-      mongoose = require("mongoose")
+      mongoose = require("mongoose"),
+      route = require("./routes/api-router"),
+      port = 5000,
+      app = express()
 
-const port = 5000;
+require("dotenv")
 
-const app = express();
-
-const mongo = mongoose.connect("mongodb+srv://arizulham:arizulham@trying.v85pk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-})
+const mongo = mongoose.connect(
+    process.env.DB_CONNECTION, 
+    {
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+    }
+)
 
 mongo.then(() => {
     console.log("DB Running")
@@ -16,9 +20,7 @@ mongo.then(() => {
     console.log(err)
 })
 
-app.get("/", (req, res) => {
-    res.send("Check server is running")
-})
+app.use("/getAll", route)
 
 app.listen(port, () => {
     console.log("Running")
