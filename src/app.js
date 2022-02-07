@@ -1,27 +1,35 @@
 const express = require("express"),
-      mongoose = require("mongoose"),
-      route = require("./routes/api-router"),
-      port = 5000,
-      app = express()
+  mongoose = require("mongoose"),
+  route = require("./routes/api-router"),
+  port = 5000,
+  app = express(),
+  bodyParser = require("body-parser"),
+  cors = require("cors");
 
-require("dotenv")
+require("dotenv");
 
-const mongo = mongoose.connect(
-    process.env.DB_CONNECTION, 
-    {
-        useUnifiedTopology: true,
-        useNewUrlParser: true
-    }
-)
+//Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
-mongo.then(() => {
-    console.log("DB Running")
-}).catch((err) => {
-    console.log(err)
-})
+//Import Router
+app.use("/geoapi", route);
 
-app.use("/getAll", route)
+//Connect DB
+const mongo = mongoose.connect(process.env.DB_CONNECTION, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 
+mongo
+  .then(() => {
+    console.log("DB Running");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+//Listen to port
 app.listen(port, () => {
-    console.log("Running")
-})
+  console.log("Running");
+});
