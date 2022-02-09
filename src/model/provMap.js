@@ -1,16 +1,13 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-require("mongoose-geojson-schema");
 
-const geoSchema = new Schema({
-  featureCollection: Schema.Types.FeatureCollection,
-});
-
-const featureCollect = mongoose.model("GeoJSON", geoSchema);
-
-const mapData = new featureCollect({
-  featureCollection: {
-    type: String,
+const ProvSchema = new Schema({
+  _id: Number,
+  mapFeature: {
+    type: {
+      type: String,
+      required: true,
+    },
     feature: [
       {
         type: String,
@@ -37,11 +34,6 @@ const mapData = new featureCollect({
       },
     ],
   },
-});
-
-const ProvSchema = new Schema({
-  _id: Number,
-  mapFeature: mapData,
 });
 
 module.exports = mongoose.model("ProvMap", ProvSchema);

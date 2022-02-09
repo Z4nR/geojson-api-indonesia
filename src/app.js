@@ -6,10 +6,15 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   cors = require("cors");
 
-require("dotenv");
+require("dotenv").config();
 
 //Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "PUT"],
+  })
+);
 app.use(bodyParser.json());
 
 //Import Router
