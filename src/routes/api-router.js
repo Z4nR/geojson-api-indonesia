@@ -1,14 +1,8 @@
-const provMap = require("../model/provMap");
-const express = require("express"),
-  router = express.Router();
+const { getProvMap, getCityByProv } = require("../controllers/controller");
+const router = require("express-promise-router")();
 
-router.get("/get-province-map", async (req, res) => {
-  try {
-    const prov = await provMap.find();
-    res.json(prov);
-  } catch (error) {
-    res.json({ message: err });
-  }
-});
+router.route("/get-province-map").get(getProvMap);
+
+router.get("/provId?=:prov_id/get-cities-map").get(getCityByProv);
 
 module.exports = router;

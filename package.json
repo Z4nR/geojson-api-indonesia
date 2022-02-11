@@ -12,8 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "express": "^4.17.2",
+    "express-promise-router": "^4.1.1",
     "mongoose": "^6.1.7",
-    "mongoose-geojson-schema": "^2.1.7",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
