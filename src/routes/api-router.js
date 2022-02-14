@@ -3,6 +3,6 @@ const router = require("express-promise-router")();
 
 router.route("/get-province-map").get(getProvMap);
 
-router.get("/provId?=:prov_id/get-cities-map").get(getCityByProv);
+router.route("/get-cities-map?prov_id=:prov_id").get(getCityByProv);
 
 module.exports = router;

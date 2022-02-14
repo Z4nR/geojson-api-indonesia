@@ -11,4 +11,5 @@ const ProvSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("provlatlong", ProvSchema, "ProvLatLong");
+const provgeo = mongoose.model("provlatlong", ProvSchema, "ProvLatLong");
+module.exports = provgeo;
