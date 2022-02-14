@@ -1,8 +1,6 @@
 const cityMap = require("../model/cityMap");
 const provMap = require("../model/provMap");
 
-let provId = null;
-
 module.exports = {
   getProvMap: async (req, res, next) => {
     try {
@@ -14,10 +12,9 @@ module.exports = {
   },
 
   getCityByProv: async (req, res, next) => {
-    const { _id } = req.params;
-    provId = _id;
+    const { prov_id } = req.query;
     try {
-      const city = await cityMap.find({ prov_id: provId });
+      const city = await cityMap.find({ prov_id });
       res.status(200).json(city);
     } catch (err) {
       next(err);
