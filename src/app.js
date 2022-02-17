@@ -58,7 +58,7 @@ mongo
   });
 
 //Listen to port
-const port = app.get("port") || 5000;
+const port = 80;
 app.listen(port, () => {
   console.log("Running");
 });
