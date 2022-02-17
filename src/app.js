@@ -58,7 +58,7 @@ mongo
   });
 
 //Listen to port
-const port = 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log("Running");
 });
