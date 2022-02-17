@@ -1,14 +1,9 @@
 const mongoose = require("mongoose");
-const provgeo = require("./provMap");
 const { Schema } = mongoose;
 
 const CitySchema = new Schema({
   _id: Number,
-  prov_id: {
-    type: Number,
-    ref: provgeo,
-    required: true,
-  },
+  prov_id: Number,
   type: {
     type: String,
     required: true,

@@ -3,12 +3,8 @@ const provgeo = require("./provMap");
 const { Schema } = mongoose;
 
 const ProvDtlSchema = new Schema({
-  _id: Number,
-  prov_id: {
-    type: Number,
-    ref: provgeo,
-    required: true,
-  },
+  _id: String,
+  prov_id: Number,
   provCapital: String,
 });
 
