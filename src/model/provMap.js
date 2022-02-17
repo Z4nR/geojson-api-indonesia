@@ -3,12 +3,13 @@ const { Schema } = mongoose;
 
 const ProvSchema = new Schema({
   _id: Number,
-  mapFeature: {
+  provFeature: {
     type: {
       type: String,
       required: true,
     },
   },
+  island: String,
 });
 
 const provgeo = mongoose.model("provlatlong", ProvSchema, "ProvLatLong");
