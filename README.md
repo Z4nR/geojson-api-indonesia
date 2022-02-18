@@ -71,3 +71,7 @@ Thanks to [Ibrahimsyah](https://github.com/Ibrahimsyah) for helping me to build 
 
 And other contributions are always welcome!
 
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
