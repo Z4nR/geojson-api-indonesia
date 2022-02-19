@@ -32,6 +32,15 @@ module.exports = {
     }
   },
 
+  getCityMap: async (req, res, next) => {
+    try {
+      const city = await citygeo.find();
+      res.status(200).json(city);
+    } catch (err) {
+      next(err);
+    }
+  },
+
   getCityByProv: async (req, res, next) => {
     const { prov_id } = req.query;
     try {
