@@ -1,7 +1,13 @@
 
-# Indonesian Map API
+# API Map Indonesia
+Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah NKRI untuk proses pengembangan produk yang sedang dikembangkan oleh developer di Indonesia
 
-This API is use for every one, who need more data about Indonesian Map in their application.
+
+## Data Map (on up date)
+
+ - Map Provinsi (done)
+ - Deskripsi per Provinsi (not yet)
+ - Map Kota (154, still update)
 
 
 ## API Reference
@@ -71,7 +77,8 @@ Thanks to [Ibrahimsyah](https://github.com/Ibrahimsyah) for helping me to build 
 
 And other contributions are always welcome!
 
+
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
