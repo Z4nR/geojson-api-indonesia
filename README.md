@@ -5,14 +5,21 @@ Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah
 
 ## Data Map (on up date)
 
- - Map Provinsi (done)
- - Deskripsi per Provinsi (not yet)
- - Map Kota (154, still update)
+ - Map Provinsi
+ - Deskripsi per Provinsi (belum diperbarui)
+ - Map Kota (154, masih terus diperbarui)
 
 
 ## API Reference
 
 #### Base API
+Base API berikut ini merupakan API dasar yang digunakan untuk mengakses data pada penyimpanan yang ada. Base API tidak dapat berdiri sendiri dan membutuhkan route berdasarkan keperluan. ada beberapa route yang dapat digunakan. diantaranya:
+
+- [Get Province Map](#get-province-map)
+- [Get Province Detail](#get-province-detail)
+- [Get Province Map on Some Island](#get-province-map-on-some-island)
+- [Get City Map in Province](#get-city-map-in-province)
+- [Get City Map on Some Island](#get-city-map-on-some-island)
 
 ```http
   https://geo-api-indonesia.herokuapp.com/geoapi/
@@ -20,12 +27,16 @@ Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah
 
 #### Get Province Map
 
+Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh provinsi yang ada di Indonesia
+
 ```http
   GET /get-province-map
 ```
 
 
 #### Get Province Detail
+
+Route ini digunakan untuk mendapatkan informasi detail mengenai suatu provinsi tertentu.
 
 ```http
   GET /get-prov-detail?prov_id={$prov_id}
@@ -36,6 +47,16 @@ Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah
 | `prov_id`      | `number` | **Required**. Id of province to fetch |
 
 #### Get Province Map on Some Island
+
+Route ini digunakan untuk mendapatkan data dari kumpulan beberapa provinsi pada satu wilayah pulau ataupun kepulauan yang sama. Parameter yang digunakan pada route ini berupa nama pula, sebagai berikut:
+
+- Sumatera (Pulau Sumatera dan pulau disekitarnya)
+- Jawa (Pulau Jawa dan pulau disekitarnya)
+- Kalimantan (Kalimantan dna pulau disekitarnya)
+- BalNusra (Bali, NTT, NTB dan pulau disekitarnya)
+- Maluku (Maluku Utara, Maluku dan pulau disekitarnya)
+- Sulawesi (Pulau Sulawesi dan pulau disekitarnya)
+- Papua (Pulau Papua dan pulau disekitarnya)
 
 ```http
   GET /get-prov-onIsland?island={$island}
@@ -48,6 +69,8 @@ Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah
 
 #### Get City Map in Province
 
+Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh kota yang ada di Indonesia
+
 ```http
   GET /get-cities-map?prov_id={$prov_id}
 ```
@@ -58,6 +81,16 @@ Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah
 
 
 #### Get City Map on Some Island
+
+Route ini digunakan untuk mendapatkan data dari kumpulan kota atau kabupaten pada satu wilayah pulau ataupun kepulauan yang sama. Parameter yang digunakan pada route ini berupa nama pula, sebagai berikut:
+
+- Sumatera (Pulau Sumatera dan pulau disekitarnya)
+- Jawa (Pulau Jawa dan pulau disekitarnya)
+- Kalimantan (Kalimantan dna pulau disekitarnya)
+- BalNusra (Bali, NTT, NTB dan pulau disekitarnya)
+- Maluku (Maluku Utara, Maluku dan pulau disekitarnya)
+- Sulawesi (Pulau Sulawesi dan pulau disekitarnya)
+- Papua (Pulau Papua dan pulau disekitarnya)
 
 ```http
   GET /get-city-onIsland?island={$island}
