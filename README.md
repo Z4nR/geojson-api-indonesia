@@ -48,7 +48,7 @@ Route ini digunakan untuk mendapatkan informasi detail mengenai suatu provinsi t
 
 #### Get Province Map on Some Island
 
-Route ini digunakan untuk mendapatkan data dari kumpulan beberapa provinsi pada satu wilayah pulau ataupun kepulauan yang sama. Parameter yang digunakan pada route ini berupa nama pula, sebagai berikut:
+Route ini digunakan untuk mendapatkan data dari kumpulan beberapa provinsi pada satu wilayah pulau ataupun kepulauan yang sama. Parameter yang digunakan pada route ini berupa nama, sebagai berikut:
 
 - Sumatera (Pulau Sumatera dan pulau disekitarnya)
 - Jawa (Pulau Jawa dan pulau disekitarnya)
@@ -82,7 +82,7 @@ Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh kota yang ada di
 
 #### Get City Map on Some Island
 
-Route ini digunakan untuk mendapatkan data dari kumpulan kota atau kabupaten pada satu wilayah pulau ataupun kepulauan yang sama. Parameter yang digunakan pada route ini berupa nama pula, sebagai berikut:
+Route ini digunakan untuk mendapatkan data dari kumpulan kota atau kabupaten pada satu wilayah pulau ataupun kepulauan yang sama. Parameter yang digunakan pada route ini berupa nama, sebagai berikut:
 
 - Sumatera (Pulau Sumatera dan pulau disekitarnya)
 - Jawa (Pulau Jawa dan pulau disekitarnya)
