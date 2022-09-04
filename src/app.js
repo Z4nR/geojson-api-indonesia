@@ -24,7 +24,7 @@ app.use("/geoapi", route);
 
 //Catch 404 Error
 app.use((req, res, next) => {
-  const err = new Error("Not Found");
+  const err = new Error("Not Found, Try Again");
   err.status = 404;
   next(err);
 });
