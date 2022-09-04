@@ -7,7 +7,7 @@ Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah
 
  - Map Provinsi
  - Deskripsi per Provinsi (belum diperbarui)
- - Map Kota (154, masih terus diperbarui)
+ - Map Kota
 
 
 ## API Reference
