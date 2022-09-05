@@ -7,7 +7,7 @@ Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah
 
  - Map Provinsi
  - Deskripsi per Provinsi (belum diperbarui)
- - Map Kota (154, masih terus diperbarui)
+ - Map Kota
 
 
 ## API Reference
@@ -20,6 +20,7 @@ Base API berikut ini merupakan API dasar yang digunakan untuk mengakses data pad
 - [Get Province Map on Some Island](#get-province-map-on-some-island)
 - [Get City Map in Province](#get-city-map-in-province)
 - [Get City Map on Some Island](#get-city-map-on-some-island)
+- [Get City Map](#get-city-map)
 
 ```http
   https://geo-api-indonesia.herokuapp.com/geoapi/
@@ -30,7 +31,7 @@ Base API berikut ini merupakan API dasar yang digunakan untuk mengakses data pad
 Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh provinsi yang ada di Indonesia
 
 ```http
-  GET /get-province-map
+  GET /get-province-all
 ```
 
 
@@ -72,7 +73,7 @@ Route ini digunakan untuk mendapatkan data dari kumpulan beberapa provinsi pada 
 Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh kota yang ada di Indonesia
 
 ```http
-  GET /get-cities-map?prov_id={$prov_id}
+  GET /get-cities-prov?prov_id={$prov_id}
 ```
 
 | Parameter | Type     | Description                       |
@@ -99,6 +100,15 @@ Route ini digunakan untuk mendapatkan data dari kumpulan kota atau kabupaten pad
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `island`      | `string` | **Required**. island query of city to fetch |
+
+#### Get City Map
+
+Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh kota yang ada di Indonesia
+
+```http
+  GET /get-cities-all
+```
+
 
 ## Authors
 
