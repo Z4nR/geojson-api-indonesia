@@ -23,14 +23,14 @@ app.use(bodyParser.json());
 app.use("/geoapi", route);
 
 //Catch 404 Error
-app.use((_req, _res, next) => {
+app.use((req, res, next) => {
   const err = new Error("Not Found, Try Again");
   err.status = 404;
   next(err);
 });
 
 //Error Handler Function
-app.use((err, _req, res, _next) => {
+app.use((err, req, res, next) => {
   const error = app.get("env") === "development" ? err : {};
   const status = err.status || 500;
 
