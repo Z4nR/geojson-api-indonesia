@@ -20,7 +20,7 @@ app.use(
 app.use(bodyParser.json());
 
 //Router
-app.use("/geoapi", route);
+app.use("/v1", route);
 
 //Catch 404 Error
 app.use((req, res, next) => {
