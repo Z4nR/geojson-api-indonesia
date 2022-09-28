@@ -116,7 +116,7 @@ Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh kota yang ada di
 
 
 ## Contributing
-Thanks to [Ibrahimsyah](https://github.com/Ibrahimsyah) for helping me to build this API.
+Thanks to [Ibrahimsyah](https://github.com/Ibrahimsyah) for helping me to build this API and [ArrayIterator](https://github.com/ArrayIterator) for creating useful geoAPI structure.
 
 And other contributions are always welcome!
 
