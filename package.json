@@ -9,7 +9,7 @@
     "server": "nodemon src/app.js"
   },
   "keywords": [
-    "cyclic",
+    "heroku",
     "geoapi"
   ],
   "author": "Z4nR",
