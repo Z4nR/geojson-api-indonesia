@@ -23,7 +23,7 @@ Base API berikut ini merupakan API dasar yang digunakan untuk mengakses data pad
 - [Get City Map](#get-city-map)
 
 ```http
-  https://geo-api-indonesia.herokuapp.com/geoapi/
+  https://geo-api-indonesia.herokuapp.com/v1/
 ```
 
 #### Get Province Map
@@ -116,7 +116,7 @@ Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh kota yang ada di
 
 
 ## Contributing
-Thanks to [Ibrahimsyah](https://github.com/Ibrahimsyah) for helping me to build this API.
+Thanks to [Ibrahimsyah](https://github.com/Ibrahimsyah) for helping me to build this API and [ArrayIterator](https://github.com/ArrayIterator) for creating useful geoAPI structure.
 
 And other contributions are always welcome!
 
