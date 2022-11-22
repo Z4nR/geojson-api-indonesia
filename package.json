@@ -9,7 +9,6 @@
     "server": "nodemon src/app.js"
   },
   "keywords": [
-    "heroku",
     "geoapi"
   ],
   "author": "Z4nR",
