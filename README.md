@@ -1,6 +1,6 @@
-# During Update of Heroku Plan, this project will be Inactive until I can find way to deploy it at other way quickly. Thanks
+## During Update of Heroku Plan, this project will be Inactive until I can find way to deploy it at other way quickly. Thanks
 
-# API Map Indonesia
+# API Map Indonesia [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah NKRI untuk proses pengembangan produk yang sedang dikembangkan oleh developer di Indonesia
 
 
@@ -120,9 +120,4 @@ Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh kota yang ada di
 Thanks to [Ibrahimsyah](https://github.com/Ibrahimsyah) for helping me to build this API and [ArrayIterator](https://github.com/ArrayIterator) for creating useful geoAPI structure.
 
 And other contributions are always welcome!
-
-
-## License
-
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
