@@ -1,6 +1,6 @@
 ## During Update of Heroku Plan, this project will be Inactive until I can find way to deploy it at other way quickly. Thanks
 
-# API Map Indonesia [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+# API Map Indonesia
 Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah NKRI untuk proses pengembangan produk yang sedang dikembangkan oleh developer di Indonesia
 
 
