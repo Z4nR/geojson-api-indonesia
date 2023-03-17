@@ -7,6 +7,11 @@ const express = require("express"),
 
 require("dotenv").config();
 
+//Handling Console.log
+if (env !== "development") {
+  console.log = function () {};
+}
+
 //Async Await
 mongoose.Promise = global.Promise;
 
