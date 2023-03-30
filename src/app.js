@@ -8,7 +8,7 @@ const express = require("express"),
 require("dotenv").config();
 
 //Handling Console.log
-if (env !== "development") {
+if (process.env.NODE_ENV !== "development") {
   console.log = function () {};
 }
 
