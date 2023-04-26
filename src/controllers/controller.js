@@ -26,7 +26,7 @@ module.exports = {
       .limit(limit)
       .sort({ _id: 1 });
 
-    if (pageNumber === 0) {
+    if (pageNumber <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
@@ -61,7 +61,7 @@ module.exports = {
       .limit(limit)
       .sort({ _id: 1 });
 
-    if (pageNumber === 0) {
+    if (pageNumber <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
@@ -99,7 +99,7 @@ module.exports = {
       .limit(limit)
       .sort({ _id: 1 });
 
-    if (pageNumber === 0) {
+    if (pageNumber <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
@@ -134,7 +134,7 @@ module.exports = {
       .limit(limit)
       .sort({ _id: 1 });
 
-    if (pageNumber === 0) {
+    if (pageNumber <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
@@ -169,7 +169,7 @@ module.exports = {
       .limit(limit)
       .sort({ _id: 1 });
 
-    if (pageNumber === 0) {
+    if (pageNumber <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
