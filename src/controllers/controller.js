@@ -15,7 +15,7 @@ module.exports = {
   },
 
   getProvMap: async (req, res, next) => {
-    const pageNumber = Number.parseInt(req.query.page);
+    const pageNumber = Number.parseInt(req.value);
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
       page = pageNumber;
     }
@@ -31,10 +31,7 @@ module.exports = {
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
     } else {
-      res.status(200).json({
-        page: pageNumber,
-        data: prov,
-      });
+      res.status(200).json(prov);
     }
   },
 
@@ -66,10 +63,7 @@ module.exports = {
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
     } else {
-      res.status(200).json({
-        page: pageNumber,
-        data: provIsland,
-      });
+      res.status(200).json(provIsland);
     }
   },
 
@@ -88,7 +82,7 @@ module.exports = {
   },
 
   getCityMap: async (req, res, next) => {
-    const pageNumber = Number.parseInt(req.query.page);
+    const pageNumber = Number.parseInt(req.value);
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
       page = pageNumber;
     }
@@ -104,10 +98,7 @@ module.exports = {
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
     } else {
-      res.status(200).json({
-        page: pageNumber,
-        data: city,
-      });
+      res.status(200).json(city);
     }
   },
 
@@ -128,7 +119,7 @@ module.exports = {
       page = pageNumber;
     }
 
-    const city = await citygeo
+    const cityProv = await citygeo
       .find({ prov_id })
       .skip((page - 1) * limit)
       .limit(limit)
@@ -139,10 +130,7 @@ module.exports = {
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
     } else {
-      res.status(200).json({
-        page: pageNumber,
-        data: city,
-      });
+      res.status(200).json(cityProv);
     }
   },
 
@@ -174,10 +162,7 @@ module.exports = {
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
     } else {
-      res.status(200).json({
-        page: pageNumber,
-        data: cityIsland,
-      });
+      res.status(200).json(cityIsland);
     }
   },
 };
