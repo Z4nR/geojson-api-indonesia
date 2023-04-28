@@ -1,21 +1,63 @@
 const {
   getProvMap,
-  getCityByProv,
-  getProvDetail,
   getProvByIsland,
-  getCityByIsland,
+  getProvDetail,
   getCityMap,
+  getCityByProv,
+  getCityByIsland,
+  getProvMapPage,
+  getProvOnIslandPage,
+  getCityMapPage,
+  getCityByProvPage,
+  getCityOnIslandPage,
 } = require("../controllers/controller");
+const {
+  validatePage,
+  schema,
+  validateProvId,
+  validateIsland,
+  validateIslandPage,
+  validateProvPage,
+} = require("../helpers/route-helpers");
 const router = require("express-promise-router")();
 
+//TotalPage
+router.route("/get-prov-page").get(getProvMapPage);
+router
+  .route("/get-prov-onIsland-page")
+  .get(validateIsland(schema.island, "island"), getProvOnIslandPage); //query ?island={String}
+router.route("/get-city-page").get(getCityMapPage);
+router
+  .route("/get-city-onIsland-page")
+  .get(validateIsland(schema.island, "island"), getCityOnIslandPage); //query ?island={String}
+router
+  .route("/get-city-onProv-page")
+  .get(validateProvId(schema.prov_id, "prov_id"), getCityByProvPage); //query ?prov_id={Int}
+
 //Province
-router.route("/get-province-all").get(getProvMap);
+router
+  .route("/get-province-all")
+  .get(validatePage(schema.page, "page"), getProvMap); //query ?page={Int}
 router.route("/get-prov-detail").get(getProvDetail);
-router.route("/get-prov-onIsland").get(getProvByIsland);
+router
+  .route("/get-prov-onIsland")
+  .get(
+    validateIslandPage(schema.islandPage, "island", "page"),
+    getProvByIsland
+  ); //query ?island={String}&page={Int}
 
 //City
-router.route("/get-cities-all").get(getCityMap);
-router.route("/get-cities-prov").get(getCityByProv);
-router.route("/get-city-onIsland").get(getCityByIsland);
+router
+  .route("/get-cities-all")
+  .get(validatePage(schema.page, "page"), getCityMap); //query ?page={Int}
+router
+  .route("/get-city-prov")
+  .get(validateProvPage(schema.provPage, "prov_id", "page"), getCityByProv); //query ?prov_id={Int}&page={Int}
+router
+  .route("/get-city-onIsland")
+  .get(
+    validateIslandPage(schema.islandPage, "island", "page"),
+    getCityByIsland
+  ); //query ?island={String}&page={Int}
 
 module.exports = router;
