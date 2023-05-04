@@ -15,7 +15,7 @@ module.exports = {
   },
 
   getProvMap: async (req, res, next) => {
-    const pageNumber = Number.parseInt(req.value);
+    const pageNumber = req.value.query;
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
       page = pageNumber;
     }
@@ -36,7 +36,7 @@ module.exports = {
   },
 
   getProvOnIslandPage: async (req, res, next) => {
-    const { island } = req.query;
+    const { island } = req.value.query;
     const provOnIslandLength = await provgeo.find({ island }).count();
 
     res.status(200).json({
@@ -45,9 +45,9 @@ module.exports = {
   },
 
   getProvByIsland: async (req, res, next) => {
-    const { island } = req.query;
+    const { island } = req.value.query.island;
 
-    const pageNumber = Number.parseInt(req.query.page);
+    const pageNumber = req.value.query.page;
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
       page = pageNumber;
     }
@@ -68,7 +68,7 @@ module.exports = {
   },
 
   getProvDetail: async (req, res, next) => {
-    const { prov_id } = req.query;
+    const { prov_id } = req.value.query;
     const detailProv = await provDtl.find({ prov_id });
     res.status(200).json(detailProv);
   },
@@ -82,7 +82,7 @@ module.exports = {
   },
 
   getCityMap: async (req, res, next) => {
-    const pageNumber = Number.parseInt(req.value);
+    const pageNumber = req.value.query;
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
       page = pageNumber;
     }
@@ -103,7 +103,7 @@ module.exports = {
   },
 
   getCityByProvPage: async (req, res, next) => {
-    const { prov_id } = req.query;
+    const { prov_id } = req.value.query;
     const cityByProvLength = await citygeo.find({ prov_id }).count();
 
     res.status(200).json({
@@ -112,9 +112,9 @@ module.exports = {
   },
 
   getCityByProv: async (req, res, next) => {
-    const { prov_id } = req.query;
+    const { prov_id } = req.value.query.prov_id;
 
-    const pageNumber = Number.parseInt(req.query.page);
+    const pageNumber = req.value.query.page;
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
       page = pageNumber;
     }
@@ -135,7 +135,7 @@ module.exports = {
   },
 
   getCityOnIslandPage: async (req, res, next) => {
-    const { island } = req.query;
+    const { island } = req.value.query;
     const cityOnIslandLength = await citygeo.find({ island }).count();
 
     res.status(200).json({
@@ -144,9 +144,9 @@ module.exports = {
   },
 
   getCityByIsland: async (req, res, next) => {
-    const { island } = req.query;
+    const { island } = req.value.query.island;
 
-    const pageNumber = Number.parseInt(req.query.page);
+    const pageNumber = req.value.query.page;
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
       page = pageNumber;
     }

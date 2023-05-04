@@ -38,7 +38,9 @@ router
 router
   .route("/get-province-all")
   .get(validatePage(schema.page, "page"), getProvMap); //query ?page={Int}
-router.route("/get-prov-detail").get(getProvDetail);
+router
+  .route("/get-prov-detail")
+  .get(validateProvId(schema.prov_id, "prov_id"), getProvDetail);
 router
   .route("/get-prov-onIsland")
   .get(
