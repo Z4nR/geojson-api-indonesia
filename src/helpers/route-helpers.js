@@ -22,7 +22,7 @@ module.exports = {
           req.value["query"] = {};
         }
 
-        req.value["query"][page] = result.value;
+        req.value["query"] = result.value;
 
         next();
       }
@@ -50,7 +50,7 @@ module.exports = {
           req.value["query"] = {};
         }
 
-        req.value["query"][prov_id] = result.value;
+        req.value["query"] = result.value;
 
         next();
       }
@@ -78,7 +78,7 @@ module.exports = {
           req.value["query"] = {};
         }
 
-        req.value["query"][island] = result.value;
+        req.value["query"] = result.value;
 
         next();
       }
