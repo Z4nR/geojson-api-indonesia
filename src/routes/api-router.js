@@ -26,7 +26,7 @@ router.route("/get-prov-page").get(getProvMapPage);
 router
   .route("/get-prov-onIsland-page")
   .get(validateIsland(schema.island, "island"), getProvOnIslandPage); //query ?island={String}
-//router.route("/get-city-page").get(getCityMapPage);
+router.route("/get-city-page").get(getCityMapPage);
 router
   .route("/get-city-onIsland-page")
   .get(validateIsland(schema.island, "island"), getCityOnIslandPage); //query ?island={String}
@@ -49,9 +49,9 @@ router
   ); //query ?island={String}&page={Int}
 
 //City
-// router
-//   .route("/get-cities-all")
-//   .get(validatePage(schema.page, "page"), getCityMap); //query ?page={Int}
+router
+  .route("/get-cities-all")
+  .get(validatePage(schema.page, "page"), getCityMap); //query ?page={Int}
 router
   .route("/get-city-prov")
   .get(validateProvPage(schema.provPage, "prov_id", "page"), getCityByProv); //query ?prov_id={Int}&page={Int}
