@@ -107,6 +107,8 @@ module.exports = {
     const { prov_id } = req.value.query;
     const cityByProvLength = await citygeo.find({ prov_id }).count();
 
+    console.log(cityByProvLength);
+
     res.status(200).json({
       totalPage: Math.ceil(cityByProvLength / Number.parseInt(cityLimit)),
     });

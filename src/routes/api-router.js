@@ -26,7 +26,7 @@ router
   .get(validateIsland(schema.island, "island"), getProvOnIslandPage); //query ?island={String}
 router.route("/get-city-page").get(getCityMapPage);
 router
-  .route("/get-city-onProv-page")
+  .route("/get-city-prov-page")
   .get(validateProvId(schema.prov_id, "prov_id"), getCityByProvPage); //query ?prov_id={Int}
 
 //Province
