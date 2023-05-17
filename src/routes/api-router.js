@@ -4,12 +4,10 @@ const {
   getProvDetail,
   getCityMap,
   getCityByProv,
-  getCityByIsland,
   getProvMapPage,
   getProvOnIslandPage,
   getCityMapPage,
   getCityByProvPage,
-  getCityOnIslandPage,
 } = require("../controllers/controller");
 const {
   validatePage,
@@ -27,9 +25,6 @@ router
   .route("/get-prov-onIsland-page")
   .get(validateIsland(schema.island, "island"), getProvOnIslandPage); //query ?island={String}
 router.route("/get-city-page").get(getCityMapPage);
-router
-  .route("/get-city-onIsland-page")
-  .get(validateIsland(schema.island, "island"), getCityOnIslandPage); //query ?island={String}
 router
   .route("/get-city-onProv-page")
   .get(validateProvId(schema.prov_id, "prov_id"), getCityByProvPage); //query ?prov_id={Int}
@@ -55,11 +50,5 @@ router
 router
   .route("/get-city-prov")
   .get(validateProvPage(schema.provPage, "prov_id", "page"), getCityByProv); //query ?prov_id={Int}&page={Int}
-router
-  .route("/get-city-onIsland")
-  .get(
-    validateIslandPage(schema.islandPage, "island", "page"),
-    getCityByIsland
-  ); //query ?island={String}&page={Int}
 
 module.exports = router;

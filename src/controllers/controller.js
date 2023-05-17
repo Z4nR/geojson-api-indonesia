@@ -134,36 +134,4 @@ module.exports = {
       res.status(200).json(cityProv);
     }
   },
-
-  getCityOnIslandPage: async (req, res, next) => {
-    const { island } = req.value.query;
-    const cityOnIslandLength = await citygeo.find({ island }).count();
-
-    res.status(200).json({
-      totalPage: Math.ceil(cityOnIslandLength / Number.parseInt(cityLimit)),
-    });
-  },
-
-  getCityByIsland: async (req, res, next) => {
-    const { island } = req.value.query.island;
-
-    const pageNumber = req.value.query.page;
-    if (!Number.isNaN(pageNumber) && pageNumber > 0) {
-      page = pageNumber;
-    }
-
-    const cityIsland = await citygeo
-      .find({ island })
-      .skip((page - 1) * cityLimit)
-      .limit(cityLimit)
-      .sort({ _id: 1 });
-
-    if (pageNumber <= 0) {
-      res.status(404).json({
-        msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
-      });
-    } else {
-      res.status(200).json(cityIsland);
-    }
-  },
 };
