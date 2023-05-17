@@ -10,7 +10,7 @@ require("dotenv").config();
 const env = process.env.NODE_ENV;
 
 //Handling Console.log
-if (env !== "development") {
+if (env === "development") {
   console.log = function () {};
 }
 

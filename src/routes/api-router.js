@@ -40,7 +40,7 @@ router
   .get(validatePage(schema.page, "page"), getProvMap); //query ?page={Int}
 router
   .route("/get-prov-detail")
-  .get(validateProvId(schema.prov_id, "prov_id"), getProvDetail);
+  .get(validateProvId(schema.prov_id, "prov_id"), getProvDetail); //query ?prov_id={Int}
 router
   .route("/get-prov-onIsland")
   .get(

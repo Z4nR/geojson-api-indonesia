@@ -69,8 +69,9 @@ module.exports = {
   },
 
   getProvDetail: async (req, res, next) => {
-    const { prov_id } = req.value.query;
+    const prov_id = req.value.query.prov_id;
     const detailProv = await provDtl.find({ prov_id });
+    console.log(detailProv);
     res.status(200).json(detailProv);
   },
 
