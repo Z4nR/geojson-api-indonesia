@@ -37,7 +37,7 @@ module.exports = {
   },
 
   getProvOnIslandPage: async (req, res, next) => {
-    const { island } = req.value.query;
+    const island = req.value.query;
     const provOnIslandLength = await provgeo.find({ island }).count();
 
     res.status(200).json({
@@ -46,7 +46,7 @@ module.exports = {
   },
 
   getProvByIsland: async (req, res, next) => {
-    const { island } = req.value.query.island;
+    const island = req.value.query.island;
 
     const pageNumber = req.value.query.page;
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
@@ -69,7 +69,7 @@ module.exports = {
   },
 
   getProvDetail: async (req, res, next) => {
-    const { prov_id } = req.value.query;
+    const prov_id = req.value.query;
     const detailProv = await provDtl.find({ prov_id });
     res.status(200).json(detailProv);
   },
@@ -104,8 +104,10 @@ module.exports = {
   },
 
   getCityByProvPage: async (req, res, next) => {
-    const { prov_id } = req.value.query;
+    const prov_id = req.value.query;
     const cityByProvLength = await citygeo.find({ prov_id }).count();
+
+    console.log(cityByProvLength);
 
     res.status(200).json({
       totalPage: Math.ceil(cityByProvLength / Number.parseInt(cityLimit)),
@@ -113,7 +115,7 @@ module.exports = {
   },
 
   getCityByProv: async (req, res, next) => {
-    const { prov_id } = req.value.query.prov_id;
+    const prov_id = req.value.query.prov_id;
 
     const pageNumber = req.value.query.page;
     if (!Number.isNaN(pageNumber) && pageNumber > 0) {
