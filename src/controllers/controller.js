@@ -3,14 +3,15 @@ const provDtl = require("../model/provDtl");
 const provgeo = require("../model/provMap");
 
 let page = 1;
-const limit = 3;
+const provLimit = 3;
+const cityLimit = 8;
 
 module.exports = {
   getProvMapPage: async (req, res, next) => {
     const provLength = await provgeo.count();
 
     res.status(200).json({
-      totalPage: Math.ceil(provLength / Number.parseInt(limit)),
+      totalPage: Math.ceil(provLength / Number.parseInt(provLimit)),
     });
   },
 
@@ -22,8 +23,8 @@ module.exports = {
 
     const prov = await provgeo
       .find()
-      .skip((page - 1) * limit)
-      .limit(limit)
+      .skip((page - 1) * provLimit)
+      .limit(provLimit)
       .sort({ _id: 1 });
 
     if (pageNumber <= 0) {
@@ -40,7 +41,7 @@ module.exports = {
     const provOnIslandLength = await provgeo.find({ island }).count();
 
     res.status(200).json({
-      totalPage: Math.ceil(provOnIslandLength / Number.parseInt(limit)),
+      totalPage: Math.ceil(provOnIslandLength / Number.parseInt(provLimit)),
     });
   },
 
@@ -54,8 +55,8 @@ module.exports = {
 
     const provIsland = await provgeo
       .find({ island })
-      .skip((page - 1) * limit)
-      .limit(limit)
+      .skip((page - 1) * provLimit)
+      .limit(provLimit)
       .sort({ _id: 1 });
 
     if (pageNumber <= 0) {
@@ -77,7 +78,7 @@ module.exports = {
     const cityLength = await citygeo.count();
 
     res.status(200).json({
-      totalPage: Math.ceil(cityLength / Number.parseInt(limit)),
+      totalPage: Math.ceil(cityLength / Number.parseInt(cityLimit)),
     });
   },
 
@@ -89,8 +90,8 @@ module.exports = {
 
     const city = await citygeo
       .find()
-      .skip((page - 1) * limit)
-      .limit(limit)
+      .skip((page - 1) * cityLimit)
+      .limit(cityLimit)
       .sort({ _id: 1 });
 
     if (pageNumber <= 0) {
@@ -107,7 +108,7 @@ module.exports = {
     const cityByProvLength = await citygeo.find({ prov_id }).count();
 
     res.status(200).json({
-      totalPage: Math.ceil(cityByProvLength / Number.parseInt(limit)),
+      totalPage: Math.ceil(cityByProvLength / Number.parseInt(cityLimit)),
     });
   },
 
@@ -121,8 +122,8 @@ module.exports = {
 
     const cityProv = await citygeo
       .find({ prov_id })
-      .skip((page - 1) * limit)
-      .limit(limit)
+      .skip((page - 1) * cityLimit)
+      .limit(cityLimit)
       .sort({ _id: 1 });
 
     if (pageNumber <= 0) {
@@ -139,7 +140,7 @@ module.exports = {
     const cityOnIslandLength = await citygeo.find({ island }).count();
 
     res.status(200).json({
-      totalPage: Math.ceil(cityOnIslandLength / Number.parseInt(limit)),
+      totalPage: Math.ceil(cityOnIslandLength / Number.parseInt(cityLimit)),
     });
   },
 
@@ -153,8 +154,8 @@ module.exports = {
 
     const cityIsland = await citygeo
       .find({ island })
-      .skip((page - 1) * limit)
-      .limit(limit)
+      .skip((page - 1) * cityLimit)
+      .limit(cityLimit)
       .sort({ _id: 1 });
 
     if (pageNumber <= 0) {
