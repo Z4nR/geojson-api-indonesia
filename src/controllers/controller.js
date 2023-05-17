@@ -4,7 +4,7 @@ const provgeo = require("../model/provMap");
 
 let page = 1;
 const provLimit = 3;
-const cityLimit = 10;
+const cityLimit = 8;
 
 module.exports = {
   getProvMapPage: async (req, res, next) => {
