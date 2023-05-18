@@ -2,7 +2,7 @@ const citygeo = require("../model/cityMap");
 const provDtl = require("../model/provDtl");
 const provgeo = require("../model/provMap");
 
-let page = 1;
+let pageNumber = 1;
 const provLimit = 3;
 const cityLimit = 8;
 
@@ -16,18 +16,18 @@ module.exports = {
   },
 
   getProvMap: async (req, res, next) => {
-    const pageNumber = req.value.query;
-    if (!Number.isNaN(pageNumber) && pageNumber > 0) {
-      page = pageNumber;
+    const page = req.value.query;
+    if (!Number.isNaN(page) && page > 0) {
+      pageNumber = page;
     }
 
     const prov = await provgeo
       .find()
-      .skip((page - 1) * provLimit)
+      .skip((pageNumber - 1) * provLimit)
       .limit(provLimit)
       .sort({ _id: 1 });
 
-    if (pageNumber <= 0) {
+    if (page <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
@@ -46,20 +46,20 @@ module.exports = {
   },
 
   getProvByIsland: async (req, res, next) => {
-    const island = req.value.query.island;
+    const { island } = req.value.query;
 
-    const pageNumber = req.value.query.page;
-    if (!Number.isNaN(pageNumber) && pageNumber > 0) {
-      page = pageNumber;
+    const { page } = req.value.query;
+    if (!Number.isNaN(page) && page > 0) {
+      pageNumber = page;
     }
 
     const provIsland = await provgeo
       .find({ island })
-      .skip((page - 1) * provLimit)
+      .skip((pageNumber - 1) * provLimit)
       .limit(provLimit)
       .sort({ _id: 1 });
 
-    if (pageNumber <= 0) {
+    if (page <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
@@ -70,7 +70,7 @@ module.exports = {
 
   getProvDetail: async (req, res, next) => {
     const prov_id = req.value.query;
-    const detailProv = await provDtl.find({ prov_id });
+    const detailProv = await provDtl.find({ _id: prov_id });
     console.log(detailProv);
     res.status(200).json(detailProv);
   },
@@ -84,18 +84,18 @@ module.exports = {
   },
 
   getCityMap: async (req, res, next) => {
-    const pageNumber = req.value.query;
-    if (!Number.isNaN(pageNumber) && pageNumber > 0) {
-      page = pageNumber;
+    const page = req.value.query;
+    if (!Number.isNaN(page) && page > 0) {
+      pageNumber = page;
     }
 
     const city = await citygeo
       .find()
-      .skip((page - 1) * cityLimit)
+      .skip((pageNumber - 1) * cityLimit)
       .limit(cityLimit)
       .sort({ _id: 1 });
 
-    if (pageNumber <= 0) {
+    if (page <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
@@ -114,20 +114,20 @@ module.exports = {
   },
 
   getCityByProv: async (req, res, next) => {
-    const prov_id = req.value.query.prov_id;
+    const { prov_id } = req.value.query;
 
-    const pageNumber = req.value.query.page;
-    if (!Number.isNaN(pageNumber) && pageNumber > 0) {
-      page = pageNumber;
+    const { page } = req.value.query;
+    if (!Number.isNaN(page) && page > 0) {
+      pageNumber = page;
     }
 
     const cityProv = await citygeo
       .find({ prov_id })
-      .skip((page - 1) * cityLimit)
+      .skip((pageNumber - 1) * cityLimit)
       .limit(cityLimit)
       .sort({ _id: 1 });
 
-    if (pageNumber <= 0) {
+    if (page <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
@@ -146,20 +146,20 @@ module.exports = {
   },
 
   getCityByIsland: async (req, res, next) => {
-    const island = req.value.query.island;
+    const { island } = req.value.query;
 
-    const pageNumber = req.value.query.page;
-    if (!Number.isNaN(pageNumber) && pageNumber > 0) {
-      page = pageNumber;
+    const { page } = req.value.query;
+    if (!Number.isNaN(page) && page > 0) {
+      pageNumber = page;
     }
 
     const cityIsland = await citygeo
       .find({ island })
-      .skip((page - 1) * cityLimit)
+      .skip((pageNumber - 1) * cityLimit)
       .limit(cityLimit)
       .sort({ _id: 1 });
 
-    if (pageNumber <= 0) {
+    if (page <= 0) {
       res.status(404).json({
         msg: "Nomor page tidak terdeteksi, silahkan mulai dengan query ?page=1",
       });
