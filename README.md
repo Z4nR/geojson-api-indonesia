@@ -16,11 +16,10 @@ Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah
 #### Base API
 Base API berikut ini merupakan API dasar yang digunakan untuk mengakses data pada penyimpanan yang ada. Base API tidak dapat berdiri sendiri dan membutuhkan route berdasarkan keperluan. ada beberapa route yang dapat digunakan. diantaranya:
 
-- [Get Province Map](#get-province-map)
+- [Get Province Map](#get-province-all)
 - [Get Province Detail](#get-province-detail)
-- [Get Province Map on Some Island](#get-province-map-on-some-island)
-- [Get City Map in Province](#get-city-map-in-province)
-- [Get City Map on Some Island](#get-city-map-on-some-island)
+- [Get Province Map on Some Island](#get-prov-onIsland)
+- [Get City Map in Province](#get-city-prov)
 - [Get City Map](#get-city-map)
 
 ```bash
@@ -32,8 +31,12 @@ Base API berikut ini merupakan API dasar yang digunakan untuk mengakses data pad
 Route ini digunakan untuk mendapatkan data GeoJSON dari seluruh provinsi yang ada di Indonesia
 
 ```http
-  GET /get-province-all
+  GET /get-province-all?page={$page}
 ```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `page`      | `number` | **Required**. Page Number to Load Province Geo Map |
 
 
 #### Get Province Detail
