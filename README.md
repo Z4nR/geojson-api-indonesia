@@ -1,5 +1,3 @@
-## Temporary Online
-
 # API Map Indonesia [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 Berikut ini merupakan API berdasarkan kebutuhan penggunaan map geografis wilayah NKRI untuk proses pengembangan produk yang sedang dikembangkan oleh developer di Indonesia
 
