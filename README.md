@@ -21,7 +21,7 @@ Base API berikut ini merupakan API dasar yang digunakan untuk mengakses data pad
 - [Get City Map](#get-city-map)
 
 ```bash
-    https://brainy-rose-rugby-shirt.cyclic.app/v1/
+    https://geoapi-indonesia.cyclic.app/v1/
 ```
 
 #### Get Province Map
